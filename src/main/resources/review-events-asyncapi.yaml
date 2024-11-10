@@ -1,0 +1,53 @@
+asyncapi: '2.6.0'
+id: 'urn:dev.mikeintoch.reviews'
+info:
+  title: Review Events API
+  version: 0.1.0
+  description: Simple AsyncAPI for review events
+defaultContentType: application/json
+channels:
+  incoming-review:
+    description: The topic on which created reviews events may be consumed
+    subscribe:
+      x-microcks-operation:
+        frequency: 15
+      summary: Receive informations about a customer review
+      operationId: receivedReviewEvents
+      message:
+        $ref: '#/components/messages/ReviewEvent'
+components:
+  messages:
+    ReviewEvent:
+      payload:
+        type: object
+        additionalProperties: false
+        required:
+          - review
+        properties:
+          review:
+            description: The review
+            type: string
+      examples:
+        - Postive review 1:
+            payload:
+              review: I love your product
+        - Negative review 1:
+            payload:
+              review: Because of your product my business is going down
+        - Postive review 2:
+            payload:
+              review: Your service saved my life
+        - Negative review 2:
+            payload:
+              review: I hate your product
+  schemas:
+    Review:
+      payload:
+        type: object
+        additionalProperties: false
+        required:
+          - review
+        properties:
+          review:
+            description: The review
+            type: string
