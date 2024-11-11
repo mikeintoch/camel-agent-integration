@@ -22,7 +22,7 @@ public interface ReviewAgent {
         - "I love your product, you are the best!", this is a POSITIVE review
         - "J'adore votre produit", this is a POSITIVE review
         - "Me gustó mucho el producto", this is a POSITIVE review
-        - "I hate your bank, you are the worst!", this is a NEGATIVE review
+        - "I hate your service, you are the worst!", this is a NEGATIVE review
         - "Nunca volveré a comprar el producto", this is a NEGATIVE review
 
 
